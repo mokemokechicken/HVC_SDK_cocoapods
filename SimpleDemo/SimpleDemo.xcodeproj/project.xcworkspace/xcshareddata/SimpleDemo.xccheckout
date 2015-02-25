@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CDFA5B34-95FA-48CC-8E4E-2AE3BF52A907</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SimpleDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7F01B7D395DD3633AE2814ED427989E850FE197D</key>
+		<string>https://github.com/mokemokechicken/HVC_SDK_cocoapods.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SimpleDemo/SimpleDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7F01B7D395DD3633AE2814ED427989E850FE197D</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mokemokechicken/HVC_SDK_cocoapods.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7F01B7D395DD3633AE2814ED427989E850FE197D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F01B7D395DD3633AE2814ED427989E850FE197D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hvc_sdk_cocoapods</string>
+		</dict>
+	</array>
+</dict>
+</plist>

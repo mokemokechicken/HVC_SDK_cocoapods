@@ -21,7 +21,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "../SDK/HVC_BLE.h"
+#import <HVC_BLE.h>
 
 
 @interface ViewController : UIViewController <HVC_Delegate>
