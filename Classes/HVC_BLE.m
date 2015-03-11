@@ -91,9 +91,11 @@
 
 -(void)didFindDevice:(CBPeripheral *)device
 {
-    if ([self.delegateHVC respondsToSelector:@selector(onDidFindDevice:)]) {
-        [self.delegateHVC onDidFindDevice:device];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegateHVC respondsToSelector:@selector(onDidFindDevice:)]) {
+            [self.delegateHVC onDidFindDevice:device];
+        }
+    });
 }
 
 -(void)connect:(CBPeripheral *)device
