@@ -21,6 +21,20 @@
 
 #import "HVC_BLE.h"
 
+////////////////////////////////////////////////
+/**
+ *  for workaround about: dispatch_async
+ */
+@interface HVCExecuteParam : NSObject
+@property HVC_FUNCTION function;
+@property HVC_RES *result;
+@end
+
+@implementation HVCExecuteParam
+@end
+////////////////////////////////////////////////
+
+
 @interface HVC_BLE () {
 }
 @property BleDeviceService *mBleService;
@@ -141,14 +155,26 @@
     }
 
     nStatus = STATE_BUSY;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        unsigned char outStatus;
-        HVC_ERRORCODE err = [self ExecuteFunc:20000 exec:inExec status:&outStatus result:result];
-        [self.delegateHVC onPostExecute:result errcode:err status:outStatus];
-        nStatus = STATE_CONNECTED;
-    });
+    
+    HVCExecuteParam *param = [[HVCExecuteParam alloc] init];
+    param.function = inExec;
+    param.result = result;
+    [self performSelector:@selector(doExecute:) withObject:param afterDelay:0.1];
+    
     return HVC_NORMAL;
 }
+
+/**
+ * dispatch_async の中で NSRunLoopで同期処理を行っていると、他のdispatch_asyncの実行が行われず、
+ * disconnect イベントなどが通知されない問題への対応
+ */
+- (void)doExecute:(HVCExecuteParam *)param {
+    unsigned char outStatus;
+    HVC_ERRORCODE err = [self ExecuteFunc:20000 exec:param.function status:&outStatus result:param.result];
+    [self.delegateHVC onPostExecute:param.result errcode:err status:outStatus];
+    nStatus = STATE_CONNECTED;
+}
+
 
 // パラメータの設定
 -(HVC_ERRORCODE)setParam:(HVC_PRM *)param
