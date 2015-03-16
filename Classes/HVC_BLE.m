@@ -98,6 +98,11 @@
     [self.mBleService startScan];
 }
 
+-(void)stopDeviceSearch
+{
+    [self.mBleService stopScan];
+}
+
 -(NSMutableArray *)getDevices
 {
     return self.mBleService.deviceList;

@@ -65,6 +65,7 @@ typedef enum : NSInteger
 /// アプリケーションとのI/F
 
 -(void)deviceSearch;
+-(void)stopDeviceSearch;
 -(NSMutableArray *)getDevices;
 -(void)connect:(CBPeripheral *)device;
 -(void)disconnect;
